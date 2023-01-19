@@ -1,6 +1,9 @@
 from django.shortcuts   import render, redirect
 from Listagem            import models, forms
 
+def index(request):
+    return render(request, "index.html")
+
 # CRUD Músicas
 def createMusica(request):
     form = forms.MusicaForm(request.POST or None)
@@ -8,7 +11,7 @@ def createMusica(request):
         form.save()
         return redirect('main')
     listagem = {'form_Musica': form}
-    return render(request, "index.html", listagem)
+    return render(request, "showMusica.html", listagem)
 
 def updateMusica(request, id_Musica):
     Musica = models.Musica.objects.get(pk=id_Musica)
@@ -17,7 +20,7 @@ def updateMusica(request, id_Musica):
         form.save()
         return redirect('main')
     listagem = {'form_Musica': form, 'Musica': Musica}
-    return render(request, "index.html", listagem)
+    return render(request, "showMusica.html", listagem)
 
 def deleteMusica(request, id_Musica):
     Musica = models.Musica.objects.get(pk=id_Musica)
