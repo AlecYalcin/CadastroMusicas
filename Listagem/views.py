@@ -4,6 +4,9 @@ from Listagem            import models, forms
 def index(request):
     return render(request, "index.html")
 
+def login(request):
+    return render(request, "pages/login.html")
+
 # CRUD Músicas
 def createMusica(request):
     form = forms.MusicaForm(request.POST or None)
