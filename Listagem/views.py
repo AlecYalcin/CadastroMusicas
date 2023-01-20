@@ -10,6 +10,9 @@ def login(request):
 def register(request):
     return render(request, "pages/register.html")
 
+def listagem(request):
+    return render(request, "pages/listagem.html")
+
 # CRUD Músicas
 def createMusica(request):
     form = forms.MusicaForm(request.POST or None)

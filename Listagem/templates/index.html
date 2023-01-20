@@ -46,7 +46,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="{% url 'login' %}">
+          <a class="nav-link text-white " href="{% url 'listagem' %}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
@@ -54,7 +54,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="{% url 'login' %}">
+          <a class="nav-link text-white " href="{% url 'main' %}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">search</i>
             </div>
@@ -81,7 +81,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="{% url 'login' %}.html">
+          <a class="nav-link text-white " href="{% url 'register' %}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">assignment</i>
             </div>
@@ -93,6 +93,8 @@
 
   </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+
+
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 pb-0 pt-4 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
       <div class="container-fluid py-1 px-3">
@@ -188,19 +190,23 @@
       </div>
     </nav>
     <!-- End Navbar -->
+
+    <!-- Conteúdo da Página -->
     <div class="container-fluid">
       <div class="row mt-4 mb-4">
         <div class="col-lg-12 col-md-6 mb-md-0 mb-4">
           <div class="card">
             <div class="card-header pb-0">
               <div class="row">
+                <!-- Texto Bem Vindo  -->
                 <div class="col-lg-6 col-7">
-                  <h6>Projects</h6>
+                  <h3>Seja Bem-Vindo!</h3>
                   <p class="text-sm mb-0">
                     <i class="fa fa-check text-info" aria-hidden="true"></i>
-                    <span class="font-weight-bold ms-1">30 done</span> this month
+                    <span class="font-weight-bold ms-1">acho q</span> dá pra usar isso aqui
                   </p>
                 </div>
+                <!-- Cursor Dropdown do Alterar -->
                 <div class="col-lg-6 col-5 my-auto text-end">
                   <div class="dropdown float-lg-end pe-4">
                     <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
@@ -212,13 +218,54 @@
                   </div>
                 </div>
               </div>
+
+              <div class="row mt-4 mb-4">
+                <img class="col-lg-3 img-fluid rounded mx-auto" src="https://static.vecteezy.com/system/resources/previews/000/210/706/original/vintage-gramophone-modern-illustration-vector.jpg">
+              </div>
+
+              <!-- Parágrafos para Falar sobre o Projeto -->
+              <div id="parag">
+
+                <p>
+                  &emsp;&emsp;Este projeto de cadastro de músicas tem como objetivo permitir que os 
+                  usuários cadastrem suas músicas favoritas e as compartilhem com outros usuários. 
+                  Ele inclui as seguintes funcionalidades:
+                </p>
+
+                <ul>
+                  <li>
+                    Listagem: Os usuários podem visualizar todas as músicas cadastradas 
+                    no sistema, ordenadas por título, artista ou data de cadastro.
+                  </li>
+                  <li>
+                    Busca: Os usuários podem buscar por músicas específicas através de 
+                    um campo de busca, filtrando por título, artista ou gênero.
+                  </li>
+                  <li>
+                    Autenticação: O projeto inclui um sistema de autenticação para garantir 
+                    que somente os usuários registrados possam cadastrar e visualizar as músicas. Isso 
+                    inclui o login e o registro de novos usuários.
+                  </li>
+                  <li>
+                    Perfil de usuário: Cada usuário tem um perfil onde pode visualizar 
+                    as músicas que ele cadastrou, editá-las e deletá-las.
+                  </li>
+                </ul>
+
+                <p>
+                  &emsp;&emsp;Esse projeto é desenvolvido utilizando tecnologias web, como HTML, CSS e JavaScript 
+                  para a camada de interface (contando com Bootstrap v5.0); uma linguagem de programação server-side, como o Python; e  
+                  para gerenciar as requisições do usuário, armazenar e recuperar informações no banco de 
+                  dados e lidar com a autenticação de usuários, o projeto utiliza o framework Django.
+                </p>
+              </div>
             </div>
             <div class="card-body px-0 pb-2">
             </div>
           </div>
         </div>
       </div>
-
+      <!-- Fim do Conteúdo da Página -->
 
 
       <footer class="footer py-4 mt-auto">
@@ -244,16 +291,13 @@
             <div class="col-lg-3">
               <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                 <li class="nav-item">
-                  <a href="#" class="nav-link text-muted">Creative Tim</a>
+                  <a href="#" class="nav-link text-muted">Template do Creative Tim</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link text-muted">About Us</a>
+                  <a href="#" class="nav-link text-muted">Sobre Nós</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link text-muted">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link pe-0 text-muted">License</a>
+                  <a href="#" class="nav-link pe-0 text-muted">Licença</a>
                 </li>
               </ul>
             </div>
