@@ -7,6 +7,9 @@ def index(request):
 def login(request):
     return render(request, "pages/login.html")
 
+def register(request):
+    return render(request, "pages/register.html")
+
 # CRUD Músicas
 def createMusica(request):
     form = forms.MusicaForm(request.POST or None)
