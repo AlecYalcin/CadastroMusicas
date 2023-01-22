@@ -1,5 +1,5 @@
 from django.shortcuts   import render, redirect
-from Listagem            import models, forms
+from Listagem           import models, forms
 
 def index(request):
     return render(request, "index.html")
