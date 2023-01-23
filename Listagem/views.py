@@ -8,10 +8,10 @@ def login(request):
     return render(request, "pages/login.html")
 
 def register(request):
-    return render(request, "pages/register.html")
+    return render(request, "registration/register.html")
 
 def listagem(request):
-    return render(request, "pages/listagem.html")
+    return render(request, "registration/listagem.html")
 
 # CRUD Músicas
 def createMusica(request):
