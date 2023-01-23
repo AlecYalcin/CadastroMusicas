@@ -2,60 +2,128 @@
 
 {% block content %}
 
-<div class="row">
-  <div class="col-lg-8 col-md-10 mx-auto">
-    <div class="card mt-4">
-      <div class="card-header p-3">
-        {% if user.is_authenticated %}
+  {% if user.is_authenticated %}
 
-          <div class="row">
+    <div class="card mx-3 mt-2">
+      <div class="card-header pb-0">
+        <div class="row">
+          <div class="col-lg-6 col-7">
             <h5 class="col-sm-10 mb-0">Músicas <i class="fa-solid fa-music"></i></h5>
-            
-            <div class="col-sm-2 col-5 my-auto text-end">
-              <div class="dropdown float-lg-end pe-4">
-                <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-ellipsis-v text-secondary"></i>
-                </a>
-                <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
-                  <li><a class="dropdown-item border-radius-md" href="javascript:;">Alterar</a></li>
-                </ul>
-              </div>
+          </div>
+          <div class="col-lg-6 col-5 my-auto text-end">
+            <div class="dropdown float-lg-end pe-4">
+              <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-ellipsis-v text-secondary"></i>
+              </a>
+              <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
+                <li><a class="dropdown-item border-radius-md" href="javascript:;">Adicionar Música</a></li>
+              </ul>
             </div>
           </div>
-          
-          <div class="card-body p-3 pb-0" style="font-weight:bold">
-            <div class="alert alert-primary alert-dismissible text-white" role="alert" style="opacity:90%">
-              <span class="text-md">Belzebu eh meu pastor | Banda Girassol</span>
-              <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="alert alert-primary alert-dismissible text-white" role="alert" style="opacity:90%">
-              <span class="text-md">Belzebu eh meu pastor | Banda Girassol</span>
-              <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="alert alert-primary alert-dismissible text-white" role="alert" style="opacity:90%">
-              <span class="text-md">Belzebu eh meu pastor | Banda Girassol</span>
-              <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-          </div>
+        </div>
+      </div>
+      <div class="card-body px-0 pb-2">
 
-          <div class="card-body px-0 pb-2"></div>
-        
-        {% else %}
-        
-          <h5 class="mb-5 pb-5">Você pode aproveitar a Listagem caso esteja logado. <i class="fa-solid fa-music"></i></h5>
-          <div class="card-body px-0 pb-2"></div>
-        
-        {% endif %}
+        <!-- TABELA -->
+        <div class="table-responsive">
+          <table class="table align-items-center mb-0">
+            <thead>
+              <tr>
+                <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Capa</th>
+                <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Nome</th>
+                <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Cantor(a) ou Banda</th>
+                <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Composição</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td class="align-middle text-center text-sm">
+                  <span class="text-xs font-weight-bold">CAPA</span>
+                </td>
+                <td>
+                  <div class="align-middle text-center fw-bold mb-0 p-2">
+                    <h6 class="mb-0 text-sm">Nome da Música</h6>
+                  </div>
+                </td>
+                <td class="align-middle text-center text-sm">
+                  <span class="text-xs font-weight-bold">Quem Canta</span>
+                </td>
+                <td class="align-middle text-center text-sm">
+                  <span class="text-xs font-weight-bold">Quem Escreveu</span>
+                </td>
+              </tr>
 
+              <tr>
+                <td class="align-middle justify-content-center px-auto">
+                  <div class="text-center">
+                    <img class="img-fluid rounded mx-auto" style="height:50px;" src="https://cdn.arstechnica.net/wp-content/uploads/2021/08/nevermind-800x800.jpg">
+                  </div>
+                </td>
+                <td>
+                  <div class="align-middle text-center fw-bold mb-0 p-2">
+                    <h6 class="mb-0 text-sm">Come As You Are</h6>
+                  </div>
+                </td>
+                <td class="align-middle text-center text-sm">
+                  <span class="text-xs font-weight-bold">Nirvana</span>
+                </td>
+                <td class="align-middle text-center text-sm">
+                  <span class="text-xs font-weight-bold">Kurt Cobain</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="align-middle justify-content-center px-auto">
+                  <div class="text-center">
+                    <img class="img-fluid rounded mx-auto" style="height:50px;" 
+                    src="https://cdns-images.dzcdn.net/images/cover/6ca145561feaf750192c8c5a4eca1b38/500x500.jpg">
+                  </div>
+                </td>
+                <td>
+                  <div class="align-middle text-center fw-bold mb-0 p-2">
+                    <h6 class="mb-0 text-sm">Aneurysm</h6>
+                  </div>
+                </td>
+                <td class="align-middle text-center text-sm">
+                  <span class="text-xs font-weight-bold">Nirvana</span>
+                </td>
+                <td class="align-middle text-center text-sm">
+                  <span class="text-xs font-weight-bold">Kurt Cobain</span>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="align-middle justify-content-center px-auto">
+                  <div class="text-center">
+                    <img class="img-fluid rounded mx-auto" style="height:50px;" 
+                    src="https://www.grayflannelsuit.net/blog/wp-content/uploads/2011/01/Pearl-Jam-Ten.jpg">
+                  </div>
+                </td>
+                <td>
+                  <div class="align-middle text-center fw-bold mb-0 p-2">
+                    <h6 class="mb-0 text-sm">Alive</h6>
+                  </div>
+                </td>
+                <td class="align-middle text-center text-sm">
+                  <span class="text-xs font-weight-bold">Pearl Jam</span>
+                </td>
+                <td class="align-middle text-center text-sm">
+                  <span class="text-xs font-weight-bold">Eddie Vedder</span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-    
-  </div>
+
+  {% else %}
+
+    <h5 class="mb-5 pb-5">Você pode aproveitar a Listagem caso esteja logado. <i class="fa-solid fa-music"></i></h5>
+    <div class="card-body px-0 pb-2"></div>
+
+  {% endif %}
 
 {% endblock %}
