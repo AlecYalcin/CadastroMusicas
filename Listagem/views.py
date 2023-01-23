@@ -1,17 +1,20 @@
-from django.shortcuts   import render, redirect
-from Listagem           import models, forms
+from django.shortcuts          import render, redirect
+from Listagem                  import models, forms
+from django.contrib.auth.forms import UserCreationForm
 
 def index(request):
     return render(request, "index.html")
 
 def login(request):
-    return render(request, "pages/login.html")
+    return render(request, "registration/login.html")
 
 def register(request):
+    form = UserCreationForm()
+    context = {'form': form}
     return render(request, "registration/register.html")
 
 def listagem(request):
-    return render(request, "registration/listagem.html")
+    return render(request, "pages/listagem.html")
 
 # CRUD Músicas
 def createMusica(request):
