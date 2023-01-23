@@ -8,6 +8,9 @@ class MusicaForm(ModelForm):
     class Meta:
         model = models.Musica
         fields = '__all__'
+        # widgets = {
+        #     'mu_musica': forms.TextInput(attrs={'class': 'basilio'}),
+        # }
 
 class CreateUserForm(UserCreationForm):
     class Meta:

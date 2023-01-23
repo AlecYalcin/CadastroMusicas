@@ -85,37 +85,38 @@
                   <h4 class="font-weight-bolder">Cadastre-se!&ensp;<i class="fa-regular fa-face-smile"></i></h4>
                   <p class="mb-0">Insira seu nome, e-mail e senha para se registrar</p>
                 </div>
+
                 <div class="card-body">
 
-                  <!-- Formulário -->
-                  <form role="form" method="POST" action="">
-
+                  <form role="form" method="POST" action="{% url 'register' %}">
                     {% csrf_token %}
-                    
                     <div class="input-group input-group-outline mb-3">
-                      <input type="text" class="form-control" placeholder="Nome">
-                      {% comment %} {{ form.username }} {% endcomment %}
+                      <label class="form-label">Name</label>
+                      <input type="text" class="form-control" name="name" id="name">
+                      
                     </div>
+                    <p class="fs-6 text-primary" font-size="11"> {{ erroUser }} </p>
                     <div class="input-group input-group-outline mb-3">
-                      <input type="email" class="form-control" placeholder="E-mail">
-                      {% comment %} {{ form.email }} {% endcomment %}
+                      <label class="form-label">Email</label>
+                      <input type="email" class="form-control" name="email" id="email">
                     </div>
+                    <p class="fs-6 text-primary" font-size="11"> {{ erroEmail }} </p>
                     <div class="input-group input-group-outline mb-3">
-                      <input type="password" class="form-control" placeholder="Senha">
-                      {% comment %} {{ form.senha }} {% endcomment %}
+                      <label class="form-label">Password</label>
+                      <input type="password" class="form-control" name="password" id="password">
                     </div>
-
                     <div class="form-check form-check-info text-start ps-0">
                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
                       <label class="form-check-label" for="flexCheckDefault">
-                        Eu concordo com os <a href="javascript:;" class="text-dark font-weight-bolder">Termos de Serviço</a>
+                        I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
                       </label>
                     </div>
                     <div class="text-center">
-                      <input type="submit" value="Cadastrar" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0"></input>
+                      <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign Up</button>
                     </div>
                   </form>
                 </div>
+
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-2 text-sm mx-auto">
                     Já possui uma conta?
@@ -129,19 +130,6 @@
       </div>
     </section>
   </main>
-
-  <script>
-
-    var form_fields = document.getElementsByTagName('input')
-    form_fields[1].placeholder = 'Nome'
-    form_fields[2].placeholder = 'E-mail'
-    form_fields[3].placeholder = 'Senha'
-
-    for (var field in form_fields) {
-      form_fields[field].className += 'form-control'
-    }
-  
-  </script>
 
   <!--   Core JS Files   -->
   <script src="{% static 'assets/js/core/popper.min.js' %}"></script>

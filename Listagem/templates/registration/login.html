@@ -83,19 +83,20 @@
                 </div>
               </div>
               <div class="card-body">
-                <form role="form" class="text-start">
+                <form role="form" class="text-start" method="POST" action="{% url 'login' %}">
+                  {% csrf_token %}
                   <div class="input-group input-group-outline my-3">
-                    <input type="email" class="form-control" placeholder="E-mail">
+                    <input type="email" class="form-control" placeholder="E-mail" name="email" id="email">
                   </div>
                   <div class="input-group input-group-outline mb-3">
-                    <input type="password" class="form-control" placeholder="Senha">
+                    <input type="password" class="form-control" placeholder="Senha" name="password" id="password">
                   </div>
                   <div class="form-check form-switch d-flex align-items-center mb-3">
                     <input class="form-check-input" type="checkbox" id="rememberMe">
                     <label class="form-check-label mb-0 ms-2" for="rememberMe">Lembrar de Mim</label>
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2">Fazer Login</button>
+                    <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Fazer Login</button>
                   </div>
                   <p class="mt-4 text-sm text-center">
                     Não possui uma conta?

@@ -1,29 +1,60 @@
-from django.shortcuts          import render, redirect
-from django.http               import HttpResponse
-from Listagem                  import models, forms
-from Listagem.models           import Musica
-from django.contrib.auth.forms import UserCreationForm
-
-from .models        import *
-from .forms         import CreateUserForm
+from django.shortcuts           import render, redirect
+from django.http                import HttpResponse
+from Listagem                   import models, forms
+from django.contrib.auth        import authenticate, login as loginUser, logout, models as modelUser
 
 #Create your views here.
 def index(request):
     return render(request, "index.html")
 
 def login(request):
-    return render(request, "registration/login.html")
+    if request.method == 'GET':
+        return render(request, "registration/login.html")
+    else:
+        email       = request.POST.get('email')
+        password    = request.POST.get('password')
+        print(email, password)
+        user = modelUser.User.objects.filter(email=email).first()
+        print(user)
+        if user:
+            loginUser(request, user)
+            return redirect('main')
+        else:
+            erro = {'erro': 'Usuário ou Senha INVÁLIDA'}
+            return redirect('login')
+
+
 
 def register(request):
-    form = CreateUserForm()
+    if request.method == 'GET':
+        return render(request, "registration/register.html")
+    else:
+        name        = request.POST.get('name')
+        email       = request.POST.get('email')
+        password    = request.POST.get('password')
 
-    if request.method == 'POST':
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            form.save()
+        userVerify = modelUser.User.objects.filter(username=name).first()
+        emailVerify = modelUser.User.objects.filter(email=email).first()
 
-    context = {'form': form}
-    return render(request, "registration/register.html")
+        if userVerify:
+            print(userVerify)
+            erro = {'erroUser':'Usuário já Cadastrado'}
+            return render(request, "registration/register.html", erro)
+
+        if emailVerify:
+            erro = {'erroEmail':'Email já Cadastrado'}
+            return render(request, "registration/register.html", erro)
+
+        user = modelUser.User.objects.create_user(
+            username=name,
+            email=email,
+            password=password,
+        )
+
+        user.save()
+        loginUser(request, user)
+        return redirect('main')
+    
 
 def listagem(request):
     return render(request, "pages/listagem.html")
