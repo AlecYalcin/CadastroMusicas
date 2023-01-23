@@ -83,7 +83,7 @@
               <div class="card card-plain border border-1 rounded border-primary shadow bg-body">
                 <div class="card-header">
                   <h4 class="font-weight-bolder">Cadastre-se!&ensp;<i class="fa-regular fa-face-smile"></i></h4>
-                  <p class="mb-0">Insira seu e-mail e senha para se registrar</p>
+                  <p class="mb-0">Insira seu nome, e-mail e senha para se registrar</p>
                 </div>
                 <div class="card-body">
 
@@ -94,13 +94,17 @@
                     
                     <div class="input-group input-group-outline mb-3">
                       <input type="text" class="form-control" placeholder="Nome">
+                      {% comment %} {{ form.username }} {% endcomment %}
                     </div>
                     <div class="input-group input-group-outline mb-3">
                       <input type="email" class="form-control" placeholder="E-mail">
+                      {% comment %} {{ form.email }} {% endcomment %}
                     </div>
                     <div class="input-group input-group-outline mb-3">
                       <input type="password" class="form-control" placeholder="Senha">
+                      {% comment %} {{ form.senha }} {% endcomment %}
                     </div>
+
                     <div class="form-check form-check-info text-start ps-0">
                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
                       <label class="form-check-label" for="flexCheckDefault">
@@ -108,7 +112,7 @@
                       </label>
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Cadastrar</button>
+                      <input type="submit" value="Cadastrar" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0"></input>
                     </div>
                   </form>
                 </div>
@@ -125,11 +129,25 @@
       </div>
     </section>
   </main>
+
+  <script>
+
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = 'Nome'
+    form_fields[2].placeholder = 'E-mail'
+    form_fields[3].placeholder = 'Senha'
+
+    for (var field in form_fields) {
+      form_fields[field].className += 'form-control'
+    }
+  
+  </script>
+
   <!--   Core JS Files   -->
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="{% static 'assets/js/core/popper.min.js' %}"></script>
+  <script src="{% static 'assets/js/core/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/js/plugins/perfect-scrollbar.min.js' %}"></script>
+  <script src="{% static 'assets/js/plugins/smooth-scrollbar.min.js' %}"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

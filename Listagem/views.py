@@ -1,7 +1,11 @@
 from django.shortcuts          import render, redirect
 from django.http               import HttpResponse
 from Listagem                  import models, forms
+from Listagem.models           import Musica
 from django.contrib.auth.forms import UserCreationForm
+
+from .models        import *
+from .forms         import CreateUserForm
 
 #Create your views here.
 def index(request):
@@ -11,10 +15,10 @@ def login(request):
     return render(request, "registration/login.html")
 
 def register(request):
-    form = UserCreationForm()
+    form = CreateUserForm()
 
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
 
