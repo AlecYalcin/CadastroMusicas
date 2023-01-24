@@ -36,24 +36,26 @@
               </tr>
             </thead>
             <tbody>
-              
+              {% for Music in MusicList %}
               <tr>
                 <td class="align-middle text-center text-sm">
-                  <span class="text-xs font-weight-bold">CAPA</span>
+                  <div class="text-center">
+                    <img class="img-fluid rounded mx-auto" style="height:50px;" src="{{ Music.mu_capa }}">
+                  </div>
                 </td>
                 <td>
                   <div class="align-middle text-center fw-bold mb-0 p-2">
-                    <h6 class="mb-0 text-sm">Nome da Música</h6>
+                    <h6 class="mb-0 text-sm">{{ Music.mu_musica }}</h6>
                   </div>
                 </td>
                 <td class="align-middle text-center text-sm">
-                  <span class="text-xs font-weight-bold">Quem Canta</span>
+                  <span class="text-xs font-weight-bold">{{ Music.mu_interprete }}</span>
                 </td>
                 <td class="align-middle text-center text-sm">
-                  <span class="text-xs font-weight-bold">Quem Escreveu</span>
+                  <span class="text-xs font-weight-bold">{{ Music.mu_autor }}</span>
                 </td>
               </tr>
-
+              {% endfor %}
               <tr>
                 <td class="align-middle justify-content-center px-auto">
                   <div class="text-center">
@@ -112,7 +114,6 @@
                   <span class="text-xs font-weight-bold">Eddie Vedder</span>
                 </td>
               </tr>
-
             </tbody>
           </table>
         </div>

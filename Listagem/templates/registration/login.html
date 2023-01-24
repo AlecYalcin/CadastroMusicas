@@ -85,6 +85,7 @@
               <div class="card-body">
                 <form role="form" class="text-start" method="POST" action="{% url 'login' %}">
                   {% csrf_token %}
+                  <p class="fs-6 text-primary" font-size="11"> {{ erro }} </p>
                   <div class="input-group input-group-outline my-3">
                     <input type="email" class="form-control" placeholder="E-mail" name="email" id="email">
                   </div>

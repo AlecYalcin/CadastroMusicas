@@ -3,9 +3,20 @@ from django.http                import HttpResponse
 from Listagem                   import models, forms
 from django.contrib.auth        import authenticate, login as loginUser, logout, models as modelUser
 
-#Create your views here.
+# ---------------------------------
+# Páginas
+# ---------------------------------
+
 def index(request):
     return render(request, "index.html")
+
+def listagem(request):
+    list = {'MusicList':models.Musica.objects.all()}
+    return render(request, "pages/listagem.html", list)
+
+# ---------------------------------
+# Manipulação de Usuários
+# ---------------------------------
 
 def login(request):
     if request.method == 'GET':
@@ -13,17 +24,16 @@ def login(request):
     else:
         email       = request.POST.get('email')
         password    = request.POST.get('password')
-        print(email, password)
-        user = modelUser.User.objects.filter(email=email).first()
-        print(user)
+        
+        mUser = modelUser.User.objects.filter(email=email).first()
+        print(mUser)
+        user = authenticate(request, username=mUser.username, password=password)
         if user:
             loginUser(request, user)
             return redirect('main')
         else:
-            erro = {'erro': 'Usuário ou Senha INVÁLIDA'}
-            return redirect('login')
-
-
+            erro = {'erro': 'Email ou Senha INVÁLIDA'}
+            return render(request, "registration/login.html", erro)
 
 def register(request):
     if request.method == 'GET':
@@ -54,12 +64,11 @@ def register(request):
         user.save()
         loginUser(request, user)
         return redirect('main')
-    
 
-def listagem(request):
-    return render(request, "pages/listagem.html")
-
+# ---------------------------------
 # CRUD Músicas
+# ---------------------------------
+
 def createMusica(request):
     form = forms.MusicaForm(request.POST or None)
     if form.is_valid():
