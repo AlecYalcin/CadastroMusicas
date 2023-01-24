@@ -14,6 +14,14 @@ def listagem(request):
     list = {'MusicList':models.Musica.objects.all()}
     return render(request, "pages/listagem.html", list)
 
+def busca(request):
+    buscar = request.GET.get('busca')
+    resultados = None
+    if buscar:
+        resultados = models.Musica.objects.filter(mu_musica__contains=buscar)
+    list = {'MusicList':resultados}
+    return render(request, "pages/listagem.html", list)
+
 # ---------------------------------
 # Manipulação de Usuários
 # ---------------------------------

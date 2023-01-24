@@ -55,7 +55,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="{% url 'main' %}">
+          <a class="nav-link text-white " href="{% url 'busca' %}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10 bg-gradient-primary rounded">search</i>
             </div>
@@ -124,8 +124,9 @@
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto d-flex align-items-center">
             <div class="input-group input-group-outline">
-              <label class="form-label">Buscar...</label>
-              <input type="text" class="form-control">
+              <form action="{% url 'busca' %}" method="GET">
+                <input type="text" name="busca" placeholder="Buscar..." class="form-control">
+              </form>
             </div>
           </div>
           <!-- Ícones da Navbar -->
