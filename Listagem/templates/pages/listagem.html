@@ -16,7 +16,7 @@
                 <i class="fa fa-ellipsis-v text-secondary"></i>
               </a>
               <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
-                <li><a class="dropdown-item border-radius-md" href="javascript:;">Adicionar Música</a></li>
+                <li><a class="dropdown-item border-radius-md" href="{% url 'cMusica' %}">Adicionar Música</a></li>
               </ul>
             </div>
           </div>
@@ -33,6 +33,9 @@
                 <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Nome</th>
                 <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Cantor(a) ou Banda</th>
                 <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Composição</th>
+                {% if user.is_staff %}
+                <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Edição</th>
+                {% endif %}
               </tr>
             </thead>
             <tbody>
@@ -54,6 +57,16 @@
                 <td class="align-middle text-center text-sm">
                   <span class="text-xs font-weight-bold">{{ Music.mu_autor }}</span>
                 </td>
+                {% if user.is_staff %}
+                <td class="align-middle text-center text-sm">
+                  <a href="{% url 'uMusica' Music.mu_id %}">
+                    <i class="material-icons text-white opacity-10 bg-gradient-primary rounded">edit</i>
+                  </a>
+                  <a href="{% url 'dMusica' Music.mu_id %}">
+                    <i class="material-icons text-white opacity-10 bg-gradient-primary rounded">delete</i>
+                  </a>
+                </td>
+                {% endif %}
               </tr>
               {% endfor %}
             </tbody>
