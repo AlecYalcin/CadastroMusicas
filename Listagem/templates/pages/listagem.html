@@ -2,15 +2,17 @@
 
 {% block content %}
 
-  {% if user.is_authenticated %}
+  {% comment %} {% if user.is_authenticated %} {% endcomment %}
 
-    <div class="card mx-3 mt-2">
-      <div class="card-header pb-0">
-        <div class="row">
-          <div class="col-lg-6 col-7">
-            <h5 class="col-sm-10 mb-0">Músicas <i class="fa-solid fa-music"></i></h5>
-          </div>
-          <div class="col-lg-6 col-5 my-auto text-end">
+  <div class="card mx-3 mt-2">
+    <div class="card-header pb-0">
+      <div class="row">
+        <div class="col-lg-6 col-7">
+          <h5 class="col-sm-10 mb-0">Músicas <i class="fa-solid fa-music"></i></h5>
+        </div>
+        <div class="col-lg-6 col-5 my-auto text-end">
+
+          {% if user.is_staff %}
             <div class="dropdown float-lg-end pe-4">
               <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa fa-ellipsis-v text-secondary"></i>
@@ -19,67 +21,68 @@
                 <li><a class="dropdown-item border-radius-md" href="{% url 'cMusica' %}">Adicionar Música</a></li>
               </ul>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-body px-0 pb-2">
-
-        <!-- TABELA -->
-        <div class="table-responsive">
-          <table class="table align-items-center mb-0">
-            <thead>
-              <tr>
-                <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Capa</th>
-                <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Nome</th>
-                <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Cantor(a) ou Banda</th>
-                <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Composição</th>
-                {% if user.is_staff %}
-                <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Edição</th>
-                {% endif %}
-              </tr>
-            </thead>
-            <tbody>
-              {% for Music in MusicList %}
-              <tr>
-                <td class="align-middle text-center text-sm">
-                  <div class="text-center">
-                    <img class="img-fluid rounded mx-auto" style="height:50px;" src="{{ Music.mu_capa }}">
-                  </div>
-                </td>
-                <td>
-                  <div class="align-middle text-center fw-bold mb-0 p-2">
-                    <h6 class="mb-0 text-sm">{{ Music.mu_musica }}</h6>
-                  </div>
-                </td>
-                <td class="align-middle text-center text-sm">
-                  <span class="text-xs font-weight-bold">{{ Music.mu_interprete }}</span>
-                </td>
-                <td class="align-middle text-center text-sm">
-                  <span class="text-xs font-weight-bold">{{ Music.mu_autor }}</span>
-                </td>
-                {% if user.is_staff %}
-                <td class="align-middle text-center text-sm">
-                  <a href="{% url 'uMusica' Music.mu_id %}">
-                    <i class="material-icons text-white opacity-10 bg-gradient-primary rounded">edit</i>
-                  </a>
-                  <a href="{% url 'dMusica' Music.mu_id %}">
-                    <i class="material-icons text-white opacity-10 bg-gradient-primary rounded">delete</i>
-                  </a>
-                </td>
-                {% endif %}
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
+          {% else %} {% endif %}
         </div>
       </div>
     </div>
+    <div class="card-body px-0 pb-2">
 
-  {% else %}
+      <!-- TABELA -->
+      <div class="table-responsive">
+        <table class="table align-items-center mb-0">
+          <thead>
+            <tr>
+              <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Capa</th>
+              <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Nome</th>
+              <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Cantor(a) ou Banda</th>
+              <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Composição</th>
+              {% if user.is_staff %}
+              <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Edição</th>
+              {% endif %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for Music in MusicList %}
+            <tr>
+              <td class="align-middle text-center text-sm">
+                <div class="text-center">
+                  <img class="img-fluid rounded mx-auto" style="height:50px;" src="{{ Music.mu_capa }}">
+                </div>
+              </td>
+              <td>
+                <div class="align-middle text-center fw-bold mb-0 p-2">
+                  <h6 class="mb-0 text-sm">{{ Music.mu_musica }}</h6>
+                </div>
+              </td>
+              <td class="align-middle text-center text-sm">
+                <span class="text-xs font-weight-bold">{{ Music.mu_interprete }}</span>
+              </td>
+              <td class="align-middle text-center text-sm">
+                <span class="text-xs font-weight-bold">{{ Music.mu_autor }}</span>
+              </td>
+              {% if user.is_staff %}
+              <td class="align-middle text-center text-sm">
+                <a href="{% url 'uMusica' Music.mu_id %}">
+                  <i class="material-icons text-white opacity-10 bg-gradient-primary rounded">edit</i>
+                </a>
+                <a href="{% url 'dMusica' Music.mu_id %}">
+                  <i class="material-icons text-white opacity-10 bg-gradient-primary rounded">delete</i>
+                </a>
+              </td>
+              {% endif %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  {% comment %} {% else %}
 
     <h5 class="mb-5 pb-5">Você pode aproveitar a Listagem caso esteja logado. <i class="fa-solid fa-music"></i></h5>
     <div class="card-body px-0 pb-2"></div>
 
-  {% endif %}
+  {% endif %} {% endcomment %}
 
 {% endblock %}

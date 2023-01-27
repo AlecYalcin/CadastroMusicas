@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container p-4 me-4 ms-2">
+        <div class="card mx-2 p-4">
+            <h4 class="fw-normal">Website desenvolvido por <strong>Alec Can Yalçin e Paulo de Tarso</strong></h4>
+
+            <div>
+                <p>
+                    &emsp;&emsp;Este sistema opera utilizando tecnologias web, como <strong>HTML, CSS e JavaScript</strong> 
+                    para a camada de interface (contando com <strong>Bootstrap v5.0</strong>); uma linguagem de programação server-side, como o 
+                    <strong>Python</strong>; e  
+                    para gerenciar as requisições do usuário, armazenar e recuperar informações no banco de 
+                    dados e lidar com a autenticação de usuários, o projeto utiliza o framework <strong>Django</strong>.
+                </p>
+
+                <p>
+                    &emsp;&emsp;Os integrantes do programa o fizeram enquanto cursavam o <strong>4º Ano de Informática no IFRN - Campus Caicó</strong>
+                    , e se dispuseram a participar de reuniões breves e assíncronas, contudo diárias, para discutirem o que ainda havia sido requisitado
+                    pelo professor da disciplina - <strong>Ricardo Kleber</strong> - que ainda não tinha sido concluído ou trabalhado.
+                </p>
+            </div>
+
+            <div class="row d-flex align-items-center">
+
+                <!-- Foto de Alec (Dev) -->
+                <div class="col-md-6 my-4">
+                    <div class="card text-center mx-auto" style="width: 16rem;">
+                        <img src="https://i.imgur.com/CsaSEY2.png" class="card-img-top">
+                        <div class="card-body">
+                          <h5 class="card-title">
+                            <a href="https://www.instagram.com/alecyalcin/" target="_blank">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a> Alec Yalçin</h5>
+                          <p class="card-text" style="font-size:0.9rem;">
+                            Adora gatos e assistir vídeos com um humor que só
+                            ele e seu parceiro entendem. Para esta brincadeira, trabalhou principalmente com <strong>back-end</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto de Paulo (Dev) -->
+                <div class="col-md-6 my-4">
+                    <div class="card text-center mx-auto" style="width: 16rem;">
+                        <img src="https://i.imgur.com/NK58v5I.png" class="card-img-top">
+                        <div class="card-body">
+                          <h5 class="card-title">
+                            <a href="https://www.instagram.com/paulo_detars/" target="_blank">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a> Paulo de Tarso</h5>
+                          <p class="card-text" style="font-size:0.9rem;">
+                            Seu rolê mais intenso é música (curte tocar e ouvir), 
+                            portanto, trabalhar como desenvolvedor <strong>front-end</strong> no programa foi muito reconfortante.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h6>
+                <a href="https://github.com/AlecYalcin/CadastroMusicas/tree/master" class="fw-normal" target="_blank">
+                    <i class="fa-brands fa-github"></i> Link do <strong>GitHub</strong>: 
+                </a>
+                <p class="card-text text-gray" style="font-size:0.9rem;">
+                    https://github.com/AlecYalcin/CadastroMusicas/tree/master</p>
+            </h6>
+        </div>
+    </div>
+
+{% endblock %}

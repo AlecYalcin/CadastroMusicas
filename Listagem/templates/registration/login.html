@@ -83,6 +83,8 @@
                 </div>
               </div>
               <div class="card-body">
+
+                <!-- FORMULÁRIO -->
                 <form role="form" class="text-start" method="POST" action="{% url 'login' %}">
                   {% csrf_token %}
                   <p class="fs-6 text-primary" font-size="11"> {{ erro }} </p>
@@ -104,6 +106,7 @@
                     <a href="{% url 'register' %}" class="text-primary text-gradient font-weight-bold">Cadastre-se</a>
                   </p>
                 </form>
+                
               </div>
             </div>
           </div>

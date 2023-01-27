@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="card mx-3 mt-2">
+        <div class="row">
+            <div class="col-lg-6">
+                <form method="POST" class="ms-4 mt-4 ps-2 pb-4">
+                    {% csrf_token %}
+
+                    <div class="input-group input-group-outline mb-3">
+                        <label class="form-label">Nome da Música</label>
+                        <input type="text" class="form-control" name="mu_musica" id="mu_musica">
+                    </div>
+
+                    <div class="input-group input-group-outline mb-3">
+                        <label class="form-label">Vocalista ou Banda</label>
+                        <input type="text" class="form-control" name="mu_interprete" id="mu_interprete">
+                    </div>
+
+                    <div class="input-group input-group-outline mb-3">
+                        <label class="form-label">Composição</label>
+                        <input type="text" class="form-control" name="mu_autor" id="mu_autor">
+                    </div>
+
+                    <div class="input-group input-group-outline mb-3">
+                        <label class="form-label">Link da Imagem da Capa</label>
+                        <input type="text" class="form-control" name="mu_capa" id="mu_capa">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary bg-gradient">Enviar</button>
+                    <a href="{% url 'listagem' %}">
+                        <button type="button" class="btn btn-light">Voltar</button>
+                    </a>
+                </form>
+
+            </div>
+
+            <div class="col-lg-4 d-flex align-items-center">
+                <div class="my-auto" >
+                    <img src="{{ Musica.mu_capa }}" style="height:200px;" class="rounded">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

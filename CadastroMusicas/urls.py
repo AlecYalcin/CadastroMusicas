@@ -11,6 +11,7 @@ urlpatterns = [
     path('register/',   views.register, name="register"),
     path('list/',       views.listagem, name="listagem"),
     path('search/',     views.busca,    name="busca"),
+    path('about/',      views.about,    name="about"),
 
     path('Musica/create',                   views.createMusica, name="cMusica"),
     path('Musica/update/<int:id_Musica>',   views.updateMusica, name="uMusica"),
