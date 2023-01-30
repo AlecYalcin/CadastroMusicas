@@ -25,6 +25,10 @@ def busca(request):
 def about(request):
     return render(request, "about.html")
 
+def edit(request):
+    list = {'MusicList':models.Musica.objects.all()}
+    return render(request, "pages/edit.html", list)
+
 # ---------------------------------
 # Manipulação de Usuários
 # ---------------------------------

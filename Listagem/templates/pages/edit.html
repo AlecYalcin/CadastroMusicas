@@ -36,6 +36,8 @@
               <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Nome</th>
               <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Cantor(a) ou Banda</th>
               <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Composição</th>
+              <th class="text-center text-uppercase text-primary text-xxs font-weight-bolder opacity-7">Edição</th>
+            </tr>
           </thead>
           <tbody>
             {% for Music in MusicList %}
@@ -56,6 +58,14 @@
               <td class="align-middle text-center text-sm">
                 <span class="text-xs font-weight-bold">{{ Music.mu_autor }}</span>
               </td>
+              <td class="align-middle text-center text-sm">
+                <a href="{% url 'uMusica' Music.mu_id %}">
+                  <i class="material-icons text-white opacity-10 bg-gradient-primary rounded">edit</i>
+                </a>
+                <a href="{% url 'dMusica' Music.mu_id %}">
+                  <i class="material-icons text-white opacity-10 bg-gradient-primary rounded">delete</i>
+                </a>
+              </td>
             </tr>
             {% endfor %}
           </tbody>
@@ -63,12 +73,4 @@
       </div>
     </div>
   </div>
-
-  {% comment %} {% else %}
-
-    <h5 class="mb-5 pb-5">Você pode aproveitar a Listagem caso esteja logado. <i class="fa-solid fa-music"></i></h5>
-    <div class="card-body px-0 pb-2"></div>
-
-  {% endif %} {% endcomment %}
-
 {% endblock %}
